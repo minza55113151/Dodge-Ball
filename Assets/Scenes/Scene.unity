@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0bef0aa25b6234a987e576602db685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 1
+  shakeDuration: 0.1
 --- !u!4 &234230673
 Transform:
   m_ObjectHideFlags: 0
