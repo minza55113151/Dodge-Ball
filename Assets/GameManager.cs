@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private float adsRate;
+
     [SerializeField] private GameObject ballPrefab;
 
     [SerializeField] private GameObject textWalkToStart;
@@ -73,9 +75,18 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        Invoke("SetTimeScale", 0.5f);
+        Invoke("SetTimeScale", 1f);
         textPressRToRestart.SetActive(true);
         textGameOver.SetActive(true);
+    }
+    public void ButtonRestartGame()
+    {
+        if (adsRate > Random.Range(0f, 1f))
+        {
+            AdsManager.instance.PlayAd(RestartGame);
+            return;
+        }
+        RestartGame();
     }
     private void RestartGame()
     {

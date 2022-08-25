@@ -15,7 +15,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         string[] adsName = { "Interstitial_Android", "Rewarded_Android", "Banner_Android" };
     #endif
 
-    private Action onRewardedAdsSuccess;
+    private Action onAdsSuccess;
 
     private void Awake()
     {
@@ -26,10 +26,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Initialize(gameId);
         Advertisement.AddListener(this);
     }
-    public void PlayAd()
+    public void PlayAd(Action onSuccess)
     {
         if (Advertisement.IsReady(adsName[0]))
         {
+            onAdsSuccess = onSuccess;
             Advertisement.Show(adsName[0]);
         }
     }
@@ -37,7 +38,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     {
         if (Advertisement.IsReady(adsName[1]))
         {
-            onRewardedAdsSuccess = onSuccess;
+            onAdsSuccess = onSuccess;
             Advertisement.Show(adsName[1]);
         }
     }
@@ -59,9 +60,9 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
-        if (placementId == adsName[1] && showResult == ShowResult.Finished)
+        if ((placementId == adsName[1] || placementId == adsName[0]) && showResult == ShowResult.Finished)
         {
-            onRewardedAdsSuccess.Invoke();
+            onAdsSuccess.Invoke();
         }
     }
 }
