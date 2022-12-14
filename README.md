@@ -6,7 +6,7 @@ You have to dodge the fire ball as long as you can.
 
 ## Game
 
-- dodge-ball.vercel.app
+- [https://dodge-ball.vercel.app](https://dodge-ball.vercel.app/)
 
 ## How To Play
 
