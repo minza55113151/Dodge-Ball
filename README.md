@@ -3,6 +3,11 @@
 
 This game you will be square.\
 You have to dodge the fire ball as long as you can.
+
+## Game
+
+- dodge-ball.vercel.app
+
 ## How To Play
 
 - WASD or Arrow key to move.
