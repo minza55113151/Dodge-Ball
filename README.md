@@ -1,6 +1,5 @@
 
-# Dodge 
-ball
+# Dodge-ball
 
 This game you will be square.\
 You have to dodge the fire ball as long as you can.
